@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRAZY VIP</title>
+    <link rel="icon" href="https://image2url.com/r2/default/images/1770770058512-36a192e6-8761-4e96-b8b1-2f78a9c17d3b.jpg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <style>
+      @font-face {
+        font-family: 'Ethnocentric';
+        src: url('https://db.onlinewebfonts.com/t/2c8b813b22e11500d43a593e921d7237.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Jzoor';
+        src: url('https://alfont.com/wp-content/fonts/new-arabic-fonts//alfont_com_%D8%AE%D8%B7-%D8%AC%D8%B0%D9%88%D8%B1-%D9%81%D9%84%D8%A7%D8%AA-%D8%B9%D8%B1%D9%8A%D8%B6.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      body {
+        background-color: #000;
+        color: #e4e4e7;
+        font-family: 'Jzoor', 'Cairo', sans-serif;
+      }
+      
+      .font-ar { font-family: 'Jzoor', 'Cairo', sans-serif !important; }
+      .font-en { font-family: 'Ethnocentric', sans-serif; }
+
+      .glass-panel {
+        background: rgba(24, 24, 27, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      /* Deadline Animation Styles */
+      #deadline {
+          width: 581px;
+          max-width: 95%;
+          height: auto;
+          position: relative;
+          z-index: 1;
+      }
+      #deadline svg { width: 100%; height: auto; }
+      #progress-time-fill {
+          animation-name: progress-fill; 
+          animation-timing-function: linear; 
+          animation-iteration-count: infinite;
+      }
+      #death-group {
+          animation-name: walk;
+          animation-timing-function: ease; 
+          animation-iteration-count: infinite;
+          transform: translateX(0);
+      }
+      #death-arm {
+          animation: move-arm 3s ease infinite;
+          transform-origin: -60px 74px;
+      }
+      #death-tool {
+          animation: move-tool 3s ease infinite;
+          transform-origin: -48px center;
+      }
+      #designer-arm-grop {
+          animation: write 1.5s ease infinite;
+          transform: translate(0, 0) rotate(0deg) scale(1, 1);
+          transform-origin: 90% top;
+      }
+      .deadline-days {
+          color: #fff;
+          text-align: center;
+          width: 280px;
+          margin: 10px auto;
+          position: relative;
+          height: 40px;
+          font-family: 'Oswald', sans-serif;
+          font-size: 2rem;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+      }
+      .deadline-days .inner { width: 280px; position: relative; top: 0; left: 0; }
+      .mask-red, .mask-white {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          overflow: hidden;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .mask-red {
+          left: 0;
+          width: 0;
+          color: #BE002A;
+          animation: text-red 5s ease infinite;
+          z-index: 2;
+          background: #000;
+      }
+      .mask-white { right: 0; }
+      #red-flame { opacity: 0; animation: show-flames 5s ease infinite, red-flame 120ms ease infinite; transform-origin: center bottom; }
+      #yellow-flame { opacity: 0; animation: show-flames 5s ease infinite, yellow-flame 120ms ease infinite; transform-origin: center bottom; }
+      #white-flame { opacity: 0; animation: show-flames 5s ease infinite, red-flame 100ms ease infinite; transform-origin: center bottom; }
+
+      @keyframes progress-fill { 0% { x: -100%; } 100% { x: -3%; } }
+      @keyframes walk {
+          0%, 6% { transform: translateX(0); }
+          10% { transform: translateX(100px); }
+          15% { transform: translateX(140px); }
+          25% { transform: translateX(170px); }
+          35% { transform: translateX(220px); }
+          45% { transform: translateX(280px); }
+          55% { transform: translateX(340px); }
+          65% { transform: translateX(370px); }
+          75% { transform: translateX(430px); }
+          85% { transform: translateX(460px); }
+          100% { transform: translateX(520px); }
+      }
+      @keyframes move-arm { 0%, 5%, 80% { transform: rotate(0); } 9% { transform: rotate(40deg); } }
+      @keyframes move-tool { 0%, 5%, 80% { transform: rotate(0); } 9% { transform: rotate(50deg); } }
+      @keyframes write {
+          0%, 32%, 65% { transform: translate(0, 0) rotate(0deg) scale(1, 1); }
+          16% { transform: translate(0px, 0px) rotate(5deg) scale(0.8, 1); }
+          48% { transform: translate(0px, 0px) rotate(6deg) scale(0.8, 1); }
+          83% { transform: translate(0px, 0px) rotate(4deg) scale(0.8, 1); }
+      }
+      @keyframes text-red { 0% { width: 0%; } 100% { width: 100%; } }
+      @keyframes show-flames { 0%, 74%, 100% { opacity: 0; } 80%, 99% { opacity: 1; } }
+      @keyframes red-flame { 0%, 100% { transform: translateY(-30px) scale(1, 1); } 25% { transform: translateY(-30px) scale(1.1, 1.1); } 75% { transform: translateY(-30px) scale(0.8, 0.7); } }
+      @keyframes yellow-flame { 0%, 100% { transform: translateY(-30px) scale(1, 1); } 50% { transform: translateY(-30px) scale(1.1, 1.2); } }
+
+      /* Existing Animations */
+      .bg-grid-moving {
+        background-image: 
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), 
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+        animation: grid-scroll 3s linear infinite;
+      }
+      @keyframes grid-scroll { 0% { background-position: 0 0; } 100% { background-position: -40px 40px; } }
+      
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); }
+      ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react/": "https://esm.sh/react@18.2.0/",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "framer-motion": "https://esm.sh/framer-motion@11.0.8?deps=react@18.2.0,react-dom@18.2.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0",
+    "@google/genai": "https://esm.sh/@google/genai@1.30.0",
+    "vite": "https://esm.sh/vite@5.1.4",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@4.2.1?deps=react@18.2.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-DHYZMD_l.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
